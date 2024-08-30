@@ -38,6 +38,17 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             z-index: 2;
         }
+        .carousel {
+            margin: 0 auto;
+        }
+        .carousel.carousel-slider {
+            height: auto; /* Ajusta la altura del carrusel */
+        }
+        .carousel-item img {
+            width: 100%;
+            height: auto; /* Mantiene la proporción de la imagen */
+            border-radius: 15px;
+        }
         .card {
             border-radius: 15px;
             overflow: hidden;
@@ -46,17 +57,6 @@
         .card-content {
             padding: 20px;
             text-align: center; /* Centrar texto en la tarjeta */
-        }
-        .carousel .carousel-item {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .carousel-item img {
-            border-radius: 15px;
-            max-width: 100%;
-            height: auto;
-            display: block; /* Asegura que la imagen se muestre correctamente */
         }
         footer {
             background-color: #ff4081;
@@ -100,6 +100,12 @@
             width: 56px;
             line-height: 56px;
             text-align: center;
+        }
+        .message-modal {
+            max-width: 600px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
         }
     </style>
 </head>
@@ -165,6 +171,20 @@
         </div>
     </div>
 
+    <!-- Modal de mensaje de cumpleaños -->
+    <div id="birthday-message" class="modal message-modal">
+        <div class="modal-content">
+            <h4>¡Feliz Cumpleaños, mi amor!</h4>
+            <p>Hoy celebro el día en que naciste, el día en que el mundo se hizo un lugar más hermoso porque tú estás en él. No hay palabras suficientes para expresar lo afortunado que me siento de tenerte en mi vida.</p>
+            <p>Tu amor y tu presencia llenan mis días de alegría y me inspiran a ser una mejor persona. Eres el regalo más maravilloso que la vida me ha dado, y cada momento a tu lado es un tesoro.</p>
+            <p>Que este cumpleaños sea tan especial y brillante como tú eres para mí. Te amo más de lo que las palabras pueden decir y siempre estaré aquí para ti, en cada paso de nuestro camino juntos.</p>
+            <p>¡Que tengas el cumpleaños más feliz y que todos tus sueños se hagan realidad!</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+        </div>
+    </div>
+
     <!-- Música de fondo -->
     <audio id="background-music" autoplay loop>
         <source src="song.mp3" type="audio/mp3">
@@ -178,13 +198,32 @@
         </a>
     </div>
 
-    <!-- CDN para partículas -->
+    <!-- Botón flotante de mensaje -->
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large waves-effect waves-light modal-trigger" href="#birthday-message">
+            <i class="material-icons">message</i>
+        </a>
+    </div>
+
+    <!-- Importar JavaScript de Materialize para el funcionamiento de modales y carruseles -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.modal');
+            M.Modal.init(elems);
+
+            var carouselElems = document.querySelectorAll('.carousel');
+            M.Carousel.init(carouselElems, {
+                fullWidth: true,
+                indicators: true
+            });
+        });
+
         particlesJS('particles-js', {
             "particles": {
                 "number": {
-                    "value": 150, // Aumenta la cantidad de partículas
+                    "value": 100,
                     "density": {
                         "enable": true,
                         "value_area": 800
@@ -202,23 +241,30 @@
                 },
                 "opacity": {
                     "value": 0.5,
-                    "random": true,
+                    "random": false,
                     "anim": {
                         "enable": false,
-                        "speed": 1
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
                     }
                 },
                 "size": {
-                    "value": 5, // Aumenta el tamaño de las partículas
+                    "value": 3,
                     "random": true,
                     "anim": {
                         "enable": false,
-                        "speed": 4,
-                        "size_min": 0.3
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
                     }
                 },
                 "line_linked": {
-                    "enable": false
+                    "enable": false,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
                 },
                 "move": {
                     "enable": true,
@@ -227,12 +273,7 @@
                     "random": false,
                     "straight": false,
                     "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
+                    "bounce": false
                 }
             },
             "interactivity": {
@@ -250,15 +291,6 @@
                 }
             },
             "retina_detect": true
-        });
-    </script>
-
-    <!-- Importar JavaScript de Materialize para el funcionamiento de modales -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.modal');
-            M.Modal.init(elems);
         });
     </script>
 </body>
