@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un Regalo Para Ti</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('fdi.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+        .login-container {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .login-container h5 {
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: #ff4081;
+        }
+        .input-field input[type="password"] {
+            text-align: center;
+            font-size: 18px;
+        }
+        .btn-custom {
+            background-color: #ff4081;
+            width: 100%;
+            border-radius: 30px;
+            padding: 10px;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 45px;
+        }
+        .btn-custom:hover {
+            background-color: #f50057;
+        }
+        .user-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: url('lauxdan.jpg') no-repeat center center;
+            background-size: cover;
+            border: 2px solid #ff4081;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="overlay"></div>
+    
+    <div class="login-container">
+        <div class="user-icon"></div>
+        <h5>Solo para ti, mi amor</h5>
+        <form id="loginForm">
+            <div class="input-field">
+                <input id="password" type="password" class="validate" required>
+                <label for="password">Fecha importante</label>
+            </div>
+            <button class="btn btn-custom waves-effect waves-light" type="submit">Entrar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const password = document.getElementById('password').value;
+            if (password === '10072024') {
+                window.location.href = 'main.html';  // Redirigir a la página principal
+            } else {
+                alert('Clave incorrecta, intenta de nuevo.');
+            }
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
