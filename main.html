@@ -4,63 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestro Mundo Especial</title>
+    <!-- Importación de Materialize CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <!-- Importación de Iconos de Google -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Importación de Animate.css para animaciones -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <style>
+        /* Estilos generales */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            overflow: auto; /* Permite el desplazamiento de la página */
-            background: rgba(255, 255, 255, 0.9); /* Fondo ligeramente translúcido */
-            position: relative; /* Asegura que el fondo de partículas se posicione correctamente */
+            overflow: auto;
+            background: rgba(255, 255, 255, 0.9);
+            position: relative;
         }
         header {
-            background-color: #ff4081;
+            background: linear-gradient(135deg, #ff4081 0%, #f50057 100%);
             padding: 20px 0;
             text-align: center;
             color: white;
             position: relative;
             z-index: 2;
+            overflow: hidden;
         }
         header h1 {
             margin: 0;
-            font-size: 2.5em;
-            font-weight: 600;
+            font-size: 3em;
+            font-weight: 700;
+            animation: fadeIn 2s ease-out;
         }
         section {
-            padding: 20px;
+            padding: 40px;
             max-width: 800px;
-            margin: 0 auto;
-            position: relative;
+            margin: 20px auto;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
             z-index: 2;
+            overflow: hidden;
         }
         .carousel {
-            margin: 0 auto;
+            margin: 30px auto;
+            height: 400px;
         }
         .carousel.carousel-slider {
-            height: auto; /* Ajusta la altura del carrusel */
+            height: auto;
         }
         .carousel-item img {
             width: 100%;
-            height: auto; /* Mantiene la proporción de la imagen */
+            height: auto;
             border-radius: 15px;
+            transition: transform 0.5s ease;
+        }
+        .carousel-item img:hover {
+            transform: scale(1.05);
         }
         .card {
             border-radius: 15px;
             overflow: hidden;
             margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         .card-content {
-            padding: 20px;
-            text-align: center; /* Centrar texto en la tarjeta */
+            text-align: center;
         }
         footer {
-            background-color: #ff4081;
-            padding: 10px 0;
+            background: linear-gradient(135deg, #ff4081 0%, #f50057 100%);
+            padding: 20px 0;
             text-align: center;
             color: white;
             position: relative;
@@ -69,157 +84,160 @@
         footer p {
             margin: 0;
         }
-        .particles-js-canvas-el {
-            position: absolute;
+        /* Estilos para partículas */
+        #particles-js {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: 1;
         }
-        .modal {
-            max-height: 80%;
-            overflow: auto;
-        }
-        .modal img {
-            width: 100%;
-            height: auto;
-        }
+        /* Estilos para botones flotantes */
         .fixed-action-btn {
             position: fixed;
             bottom: 45px;
             right: 24px;
-            z-index: 10;
+            z-index: 3;
         }
-        .fixed-action-btn .btn-large {
+        .fixed-action-btn .btn-floating {
             background-color: #ff4081;
         }
-        .btn-floating {
-            border-radius: 50%;
-            height: 56px;
-            width: 56px;
-            line-height: 56px;
-            text-align: center;
+        /* Estilos para el modal de mensaje de cumpleaños */
+        .modal-content h4 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #ff4081;
         }
-        .message-modal {
-            max-width: 600px;
-            text-align: center;
-            padding: 20px;
-            border-radius: 15px;
+        .modal-content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
 
     <!-- Fondo de partículas -->
-    <div id="particles-js" class="particles-js-canvas-el"></div>
+    <div id="particles-js"></div>
 
     <header>
-        <h1>Descubre nuestro mundo, mi mayor inspiración</h1>
+        <h1 class="animate__animated animate__fadeIn">Bienvenida a nuestro mundo, mi mayor inspiración</h1>
     </header>
 
     <section>
+        <!-- Mensajes de amor -->
         <div class="card">
             <div class="card-content">
                 <h5>Mensajes de amor</h5>
-                <p>Mi amor, cada día a tu lado es un regalo que aprecio profundamente. Desde el primer momento que cruzamos nuestras miradas, supe que mi vida cambiaría para siempre. Eres la luz que ilumina mis días más oscuros y el motivo de mi sonrisa constante.</p>
-                <p>Te amo más allá de las palabras y de los gestos, más allá de lo que los ojos pueden ver. Eres mi compañera, mi amiga, mi confidente y mi amor eterno. No puedo esperar para pasar el resto de mi vida contigo, compartiendo cada sueño, cada alegría y cada desafío.</p>
-                <p>Gracias por ser tú, por amarme de la manera en que lo haces y por hacerme sentir completo. No hay nada en este mundo que desee más que verte feliz y hacer todo lo posible para que lo seas. Eres mi todo.</p>
+                <p class="message">
+                    Mi amor, desde el primer momento en que nuestras vidas se cruzaron, supe que había encontrado a alguien verdaderamente especial. A pesar de la distancia que nos separa, cada día siento tu presencia y tu amor más cerca que nunca. Tu inteligencia, tu fuerza y tu belleza interior me inspiran constantemente, y sueño con el día en que podamos compartir todos nuestros momentos juntos. Gracias por iluminar mi vida y por enseñarme el verdadero significado del amor. Te amo más de lo que las palabras pueden expresar, y espero con ansias construir un futuro increíble a tu lado.
+                </p>
             </div>
         </div>
 
+        <!-- Galería de Recuerdos -->
         <div class="card">
             <div class="card-content">
                 <h5>Galería de Recuerdos</h5>
-                <div class="carousel carousel-slider">
-                    <a class="carousel-item modal-trigger" href="#modal1"><img src="lauxdan.jpg" alt="Recuerdo 1"></a>
-                    <a class="carousel-item modal-trigger" href="#modal2"><img src="lauxdan1.jpg" alt="Recuerdo 2"></a>
+                <div class="carousel carousel-slider center">
+                    <div class="carousel-item">
+                        <img src="lauxdan.jpg" alt="Recuerdo 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="lauxdan1.jpg" alt="Recuerdo 2">
+                    </div>
+                    <!-- Agrega más imágenes si lo deseas -->
                 </div>
             </div>
         </div>
 
+        <!-- Nuestro Primer Encuentro -->
         <div class="card">
             <div class="card-content">
                 <h5>Nuestro Primer Encuentro</h5>
-                <p>El 10 de julio del 2024, nuestras vidas se cruzaron y fue el comienzo de una hermosa historia de amor. Desde ese momento, mi corazón supo que había encontrado a alguien especial, alguien con quien compartir mis sueños, mis esperanzas y mis días. Cada recuerdo de ese día es un tesoro que guardo con cariño.</p>
-                <p>Ese día no solo conocí a una persona maravillosa, sino que encontré a mi alma gemela, mi compañera de vida. Estoy emocionado por todo lo que el futuro nos tiene reservado y por continuar construyendo recuerdos hermosos juntos.</p>
+                <p class="message">
+                    Aunque aún no hemos tenido la oportunidad de vernos en persona, cada conversación y cada momento compartido contigo ha sido mágico y único. El 10 de julio de 2024 marcó el inicio de esta hermosa historia de amor que seguimos escribiendo juntos día a día. Sueño con el momento en que finalmente podamos mirarnos a los ojos y sentir la conexión que hemos construido a través de la distancia. Sé que ese día será inolvidable y solo el comienzo de muchas aventuras juntos.
+                </p>
             </div>
         </div>
 
+        <!-- Carta para el Futuro -->
         <div class="card">
             <div class="card-content">
                 <h5>Carta para el Futuro</h5>
-                <p>Mi amor, quiero que sepas que cada día contigo es un regalo invaluable. Estoy ansioso por seguir construyendo nuestra vida juntos, enfrentar cada desafío y celebrar cada logro. Mi amor por ti es eterno y siempre estaré aquí para ti, en los buenos y malos momentos.</p>
-                <p>Te amo más de lo que las palabras pueden expresar, y siempre haré todo lo posible para hacerte feliz. Eres el sueño hecho realidad que nunca supe que tenía, y estoy agradecido por cada momento que compartimos.</p>
+                <p class="message">
+                    Mi amada Laura, mientras avanzamos juntos hacia el futuro, no puedo evitar imaginar todas las maravillas que nos esperan. Tu determinación y pasión te llevarán lejos en la vida, y sé que te convertirás en una abogada excepcional que hará una diferencia en el mundo. Quiero estar a tu lado en cada paso de tu camino, apoyándote y celebrando tus logros. Juntos, superaremos cualquier obstáculo y construiremos una vida llena de amor, risas y sueños cumplidos. Te amo con todo mi corazón y siempre estaré aquí para ti.
+                </p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>Siempre tuyo, con todo mi querer.</p>
+        <p>Gracias por ser la luz que ilumina mi vida cada día.</p>
     </footer>
 
-    <!-- Modal para ver imágenes en grande -->
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <img src="lauxdan.jpg" alt="Recuerdo 1">
-        </div>
-    </div>
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-            <img src="lauxdan1.jpg" alt="Recuerdo 2">
-        </div>
+    <!-- Botones flotantes -->
+    <div class="fixed-action-btn">
+        <!-- Botón de música -->
+        <a class="btn-floating btn-large" id="music-control">
+            <i class="material-icons" id="music-icon">pause</i>
+        </a>
+        <!-- Botón de mensaje de cumpleaños -->
+        <a class="btn-floating btn-large modal-trigger" href="#birthday-modal">
+            <i class="material-icons">cake</i>
+        </a>
     </div>
 
     <!-- Modal de mensaje de cumpleaños -->
-    <div id="birthday-message" class="modal message-modal">
+    <div id="birthday-modal" class="modal">
         <div class="modal-content">
-            <h4>¡Feliz Cumpleaños, mi amor!</h4>
-            <p>Hoy celebro el día en que naciste, el día en que el mundo se hizo un lugar más hermoso porque tú estás en él. No hay palabras suficientes para expresar lo afortunado que me siento de tenerte en mi vida.</p>
-            <p>Tu amor y tu presencia llenan mis días de alegría y me inspiran a ser una mejor persona. Eres el regalo más maravilloso que la vida me ha dado, y cada momento a tu lado es un tesoro.</p>
-            <p>Que este cumpleaños sea tan especial y brillante como tú eres para mí. Te amo más de lo que las palabras pueden decir y siempre estaré aquí para ti, en cada paso de nuestro camino juntos.</p>
-            <p>¡Que tengas el cumpleaños más feliz y que todos tus sueños se hagan realidad!</p>
+            <h4>¡Feliz 18º Cumpleaños, Laura!</h4>
+            <p>
+                Mi querida Laura, hoy celebramos un día muy especial: tu 18º cumpleaños. Aunque la distancia nos separa físicamente, mi corazón está contigo en cada momento de este día tan importante. Has llegado a una etapa maravillosa de tu vida, llena de nuevas oportunidades, sueños por cumplir y aventuras por vivir.
+            </p>
+            <p>
+                Quiero que sepas lo increíblemente orgulloso que estoy de ti. Tu inteligencia, valentía y determinación te han llevado hasta aquí, y sé que te llevarán aún más lejos en el camino hacia convertirte en la abogada brillante y exitosa que siempre has soñado ser. Tu pasión por la justicia y tu deseo de ayudar a los demás son cualidades que admiro profundamente en ti.
+            </p>
+            <p>
+                Cada día que pasa, mi amor por ti crece más y más. Eres la persona que ilumina mis días y llena mi corazón de alegría y esperanza. Sueño con el momento en que podamos estar juntos y crear recuerdos inolvidables que atesoraremos por siempre.
+            </p>
+            <p>
+                Espero que este cumpleaños esté lleno de felicidad, amor y todas las cosas que te hacen sonreír. Mereces todo lo mejor que la vida puede ofrecer, y estoy emocionado por ser parte de tu viaje y verte conquistar el mundo con tu luz y tu fortaleza.
+            </p>
+            <p>
+                ¡Feliz cumpleaños, mi amor! Que este sea el comienzo del mejor capítulo de tu vida. Te amo hoy y siempre.
+            </p>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+            <a href="#!" class="modal-close btn waves-effect waves-light" style="background-color: #ff4081;">Cerrar</a>
         </div>
     </div>
 
-    <!-- Música de fondo -->
-    <audio id="background-music" autoplay loop>
-        <source src="song.mp3" type="audio/mp3">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
-
-    <!-- Botón de reproducción de música -->
-    <div class="fixed-action-btn">
-        <a class="btn-floating btn-large waves-effect waves-light" onclick="document.getElementById('background-music').play();">
-            <i class="material-icons">play_arrow</i>
-        </a>
-    </div>
-
-    <!-- Botón flotante de mensaje -->
-    <div class="fixed-action-btn">
-        <a class="btn-floating btn-large waves-effect waves-light modal-trigger" href="#birthday-message">
-            <i class="material-icons">message</i>
-        </a>
-    </div>
-
-    <!-- Importar JavaScript de Materialize para el funcionamiento de modales y carruseles -->
+    <!-- Importación de scripts -->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Materialize JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Particles JS -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.modal');
-            M.Modal.init(elems);
 
-            var carouselElems = document.querySelectorAll('.carousel');
-            M.Carousel.init(carouselElems, {
+    <script>
+        // Inicialización de componentes de Materialize
+        $(document).ready(function(){
+            $('.carousel').carousel({
                 fullWidth: true,
                 indicators: true
             });
+            $('.modal').modal();
         });
 
+        // Configuración de Partículas
         particlesJS('particles-js', {
             "particles": {
                 "number": {
@@ -241,39 +259,18 @@
                 },
                 "opacity": {
                     "value": 0.5,
-                    "random": false,
-                    "anim": {
-                        "enable": false,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
+                    "random": true
                 },
                 "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
-                    "enable": false,
-                    "distance": 150,
-                    "color": "#ffffff",
-                    "opacity": 0.4,
-                    "width": 1
+                    "value": 5,
+                    "random": true
                 },
                 "move": {
                     "enable": true,
-                    "speed": 3,
+                    "speed": 2,
                     "direction": "none",
                     "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false
+                    "out_mode": "out"
                 }
             },
             "interactivity": {
@@ -292,6 +289,25 @@
             },
             "retina_detect": true
         });
+
+        // Control de música
+        const audio = new Audio('song.mp3');
+        audio.loop = true;
+        audio.play();
+
+        const musicControl = document.getElementById('music-control');
+        const musicIcon = document.getElementById('music-icon');
+
+        musicControl.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                musicIcon.textContent = 'pause';
+            } else {
+                audio.pause();
+                musicIcon.textContent = 'play_arrow';
+            }
+        });
     </script>
+
 </body>
 </html>
